@@ -1,0 +1,9 @@
+================ RESULTS ================
+ roll: offset +0.0° to +30.0°  (servo angle 15.0° to 45.0°)  (no contact on at least one side)
+pitch: offset +0.0° to +22.0°  (servo angle 15.0° to 37.0°)  (no contact on at least one side)
+corner roll+30.0_pitch+22.0: clear to 40%
+
+================ RESULTS ================
+ roll: offset +0.0° to +30.0°  (servo angle 15.0° to 45.0°)  (no contact on at least one side)
+pitch: offset +0.0° to +21.0°  (servo angle 15.0° to 36.0°)  (no contact on at least one side)
+corner roll+30.0_pitch+21.0: clear to 40%

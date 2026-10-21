@@ -1,0 +1,28 @@
+{
+  "center": 15,
+  "step": 1.0,
+  "safety_margin": 1.0,
+  "axes": {
+    "roll": {
+      "min_offset": 0.0,
+      "max_offset": 9.0,
+      "min_angle": 15.0,
+      "max_angle": 24.0,
+      "contact_found_min": false,
+      "contact_found_max": true
+    },
+    "pitch": {
+      "min_offset": -13.0,
+      "max_offset": 13.0,
+      "min_angle": 2.0,
+      "max_angle": 28.0,
+      "contact_found_min": true,
+      "contact_found_max": true
+    }
+  },
+  "corners": {
+    "roll+9.0_pitch+13.0": 0.7,
+    "roll+9.0_pitch-13.0": 0.5
+  },
+  "timestamp": "2026-10-15 15:53:23"
+}

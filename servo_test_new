@@ -1,0 +1,89 @@
+"""Servo board check: reads back what the servo board is actually set to send.
+
+Run it with the servo's power switched off. It sets the board up exactly the
+way the servo scripts do, asks for a 0-degree pulse (1500 microseconds) on
+CHANNEL, reads the settings back from the board, and then switches that
+channel off again. Paste everything it prints.
+"""
+from time import sleep
+
+try:
+    from smbus2 import SMBus
+except ImportError:
+    from smbus import SMBus
+
+CHANNEL = 15
+ADDRESS = 0x40
+FREQ_HZ = 50
+CLOCK_HZ = 25_000_000                      # the board's built-in clock
+
+MODE1, MODE2, PRESCALE = 0x00, 0x01, 0xFE
+REG = 0x06 + 4 * CHANNEL                   # first of this channel's four registers
+WANT_PRESCALE = round(CLOCK_HZ / (4096 * FREQ_HZ)) - 1
+WANT_TICKS = round(1500 * FREQ_HZ * 4096 / 1_000_000)   # 0 degrees = 1500 us
+
+
+def read_modes(bus):
+    return [bus.read_byte_data(ADDRESS, r) for r in (MODE1, MODE2, PRESCALE)]
+
+
+bus = SMBus(1)
+try:
+    before = read_modes(bus)
+
+    # Same setup as the servo scripts
+    bus.write_byte_data(ADDRESS, MODE1, 0x10)          # sleep, so the frequency can be set
+    bus.write_byte_data(ADDRESS, PRESCALE, WANT_PRESCALE)
+    bus.write_byte_data(ADDRESS, MODE2, 0x04)          # normal push-pull outputs
+    bus.write_byte_data(ADDRESS, MODE1, 0x20)          # wake up, auto-increment on
+    sleep(0.005)
+    bus.write_i2c_block_data(ADDRESS, REG, [0, 0, WANT_TICKS & 0xFF, WANT_TICKS >> 8])
+    sleep(0.05)
+
+    mode1, mode2, prescale = read_modes(bus)
+    on_l, on_h, off_l, off_h = [bus.read_byte_data(ADDRESS, REG + i) for i in range(4)]
+
+    bus.write_i2c_block_data(ADDRESS, REG, [0, 0, 0, 0x10])   # channel fully off again
+except OSError as err:
+    bus.close()
+    raise SystemExit(f"Couldn't talk to the board at {ADDRESS:#x} ({err.strerror}).")
+bus.close()
+
+on = (on_h & 0x0F) << 8 | on_l
+off = (off_h & 0x0F) << 8 | off_l
+freq = CLOCK_HZ / (4096 * (prescale + 1))
+pulse_us = (off - on) % 4096 * (prescale + 1) * 1_000_000 / CLOCK_HZ
+forced = "off" if off_h & 0x10 else "on" if on_h & 0x10 else "no"
+
+checks = [
+    # (setting, value, ok, what it means if it's wrong)
+    ("clock source", "external" if mode1 & 0x40 else "built-in", not (mode1 & 0x40),
+     "It's set to use an outside clock it doesn't have, so it can't time pulses. "
+     "Unplug the board's VCC wire for a few seconds to reset it, then run this again."),
+    ("awake", "no" if mode1 & 0x10 else "yes", not (mode1 & 0x10),
+     "The board is still asleep, so it isn't sending pulses."),
+    ("frequency", f"{freq:.1f} Hz", prescale == WANT_PRESCALE,
+     f"It should be {FREQ_HZ} Hz, so the pulses come out at the wrong rate."),
+    ("outputs inverted", "yes" if mode2 & 0x10 else "no", not (mode2 & 0x10),
+     "Every pulse comes out upside down, which servos can't read."),
+    ("output drive", "push-pull" if mode2 & 0x04 else "open-drain", bool(mode2 & 0x04),
+     "The outputs can't drive the signal high on their own."),
+    (f"channel {CHANNEL} forced", forced, forced == "no",
+     "The channel is stuck fully on or off instead of pulsing."),
+    (f"channel {CHANNEL} pulse", f"{pulse_us:.0f} us", abs(pulse_us - 1500) < 15,
+     "It should be about 1500 us, so servos read it as out of range."),
+]
+
+print(f"Board at {ADDRESS:#x}, channel {CHANNEL}")
+print("before setup: MODE1 {:#04x}  MODE2 {:#04x}  prescale {}".format(*before))
+print(f"after setup:  MODE1 {mode1:#04x}  MODE2 {mode2:#04x}  prescale {prescale}")
+print(f"channel {CHANNEL} registers: {on_l} {on_h} {off_l} {off_h}\n")
+for setting, value, ok, _ in checks:
+    print(f"  {setting:<20} {value:<12} {'OK' if ok else 'PROBLEM'}")
+print()
+problems = [meaning for _, _, ok, meaning in checks if not ok]
+for meaning in problems:
+    print("PROBLEM:", meaning)
+if not problems:
+    print("Every setting reads back correctly, so the code side is fine.")
+print(f"Channel {CHANNEL} has been switched off again.")

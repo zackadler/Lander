@@ -1,0 +1,1 @@
+把该程序复制到Arduino安装目录下的Library文件夹中，然后打开Arduino文件编译下载即可使用

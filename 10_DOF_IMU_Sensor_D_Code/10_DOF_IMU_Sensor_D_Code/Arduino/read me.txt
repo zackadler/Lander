@@ -1,0 +1,1 @@
+Copy the program to the Library folder under the Arduino installation directory, then open the Arduino, compile and program to use it.
