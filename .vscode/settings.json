@@ -6,5 +6,6 @@
             "packageManager": "ms-python.python:pip"
         }
     ],
-    "python-envs.defaultEnvManager": "ms-python.python:system"
+    "python-envs.defaultEnvManager": "ms-python.python:system",
+    "cmake.sourceDirectory": "/home/vertical-lander/Desktop/Lander_Jr/lidarLite"
 }
