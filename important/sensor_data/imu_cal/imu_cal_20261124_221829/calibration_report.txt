@@ -1,0 +1,140 @@
+WHO_AM_I = 0xEA (ICM-20948), magnetometer found: True
+Output directory: /home/vertical-lander/Desktop/Lander_Jr/important/sensor_data/laser_data/imu_cal_20261124_221829
+
+========================================================================
+STAGE 1/3  SIX-POSITION TEST  (accel bias / scale / alignment, gyro bias)
+========================================================================
+FRD body frame: x = NOSE (forward), y = RIGHT side, z = BOTTOM (down).
+Decide which physical faces of your board are NOSE / RIGHT / BOTTOM and keep that fixed.
+Each position is held 30 s. Rest it against a book or box corner as a square
+reference: tilt errors of a few degrees become alignment errors in the result.
+Type q at any prompt to quit (partial results are kept).
+
+[SIX 1/6] Put the BOTTOM face DOWN  ->  BOTTOM face down (level, normal attitude)
+   Lay it flat, nose pointing away from you. FRD +Z (down) points at the floor.
+  raw data saved: raw_sixpos_1_bottom_down.csv
+  mean accel (native, m/s^2): x=-0.095 y=-0.217 z=+10.053
+  native +z points UP   (|a| = 10.055 m/s^2)
+  [SIX 1/6] DONE
+
+[SIX 2/6] Put the TOP face DOWN  ->  TOP face down (upside down)
+   Flip it over. FRD +Z now points at the ceiling.
+  raw data saved: raw_sixpos_2_top_down.csv
+  mean accel (native, m/s^2): x=-0.072 y=-0.163 z=-9.939
+  native -z points UP   (|a| = 9.941 m/s^2)
+  [SIX 2/6] DONE
+
+[SIX 3/6] Put the TAIL face DOWN  ->  TAIL face down (nose pointing straight UP)
+   Stand it on its tail end, nose at the ceiling.
+  raw data saved: raw_sixpos_3_tail_down.csv
+  mean accel (native, m/s^2): x=-9.768 y=+1.296 z=+0.282
+  native -x points UP   (|a| = 9.858 m/s^2)
+  [SIX 3/6] DONE
+
+[SIX 4/6] Put the NOSE face DOWN  ->  NOSE face down (nose pointing straight DOWN)
+   Stand it on its nose end, tail at the ceiling.
+  raw data saved: raw_sixpos_4_nose_down.csv
+  mean accel (native, m/s^2): x=+9.749 y=-0.231 z=+0.126
+  native +x points UP   (|a| = 9.753 m/s^2)
+  [SIX 4/6] DONE
+
+[SIX 5/6] Put the RIGHT face DOWN  ->  RIGHT side down
+   Stand it on its right-hand side face.
+  raw data saved: raw_sixpos_5_right_down.csv
+  mean accel (native, m/s^2): x=+0.432 y=-10.026 z=+0.282
+  native -y points UP   (|a| = 10.039 m/s^2)
+  [SIX 5/6] DONE
+
+[SIX 6/6] Put the LEFT face DOWN  ->  LEFT side down
+   Stand it on its left-hand side face.
+  raw data saved: raw_sixpos_6_left_down.csv
+  mean accel (native, m/s^2): x=-0.944 y=+9.555 z=+0.307
+  native +y points UP   (|a| = 9.606 m/s^2)
+  [SIX 6/6] DONE
+
+Solving accelerometer calibration...
+
+  Accelerometer result
+    bias (native axes, m/s^2): [-0.1163  0.0356  0.185 ]
+    per-axis scale (native)  : [0.9951 0.9983 1.0193]   (1.0000 = perfect)
+    fit residual RMS         : 0.2267 m/s^2   (POOR: repeat with a steadier setup)
+    native -> FRD axis map   : FRD x = -native x,  FRD y = +native y,  FRD z = -native z
+    det(P) = +1
+    scale + misalignment matrix K (FRD, M = K*P):
+      [ +1.00988  -0.06977  +0.00155]
+      [ -0.07728  +1.00304  -0.00273]
+      [ +0.00797  +0.00080  +0.98080]
+    driver NATIVE_TO_FRD DOES NOT MATCH the measured map -> use the one in calibration.json, not the driver's.
+
+  Gyro bias (still, averaged over six positions)
+    native deg/s: [0.547 0.566 0.512]   (spread between positions [0.045 0.035 0.01 ])
+
+========================================================================
+STAGE 1 COMPLETE: six-position test done
+========================================================================
+
+========================================================================
+STAGE 2/3  GYRO SIGN TESTS  (each must give a POSITIVE FRD gyro x / y / z)
+========================================================================
+Axis map used for the sign check: six-position fit
+Each test is 20 s. Make ONE smooth rotation and hold still at the end;
+rotating back inside the window cancels the net angle the check relies on.
+
+[GYRO 1/3] ROLL: right side DOWN (expect +FRD gyro x)
+   Start level, nose forward. After the beep, roll ONCE about the nose axis so the
+   RIGHT side goes down, ~60-90 deg, then HOLD still there until the end beep.
+  raw data saved: raw_gyro_1_roll_right_down.csv
+  net rotation (FRD, deg): x=+86.6  y=-14.6  z=+17.9   (peak 20 deg/s)
+  accelerometer confirms the board physically moved the requested way
+  RESULT: PASS: FRD gyro x is positive (+87 deg) as required.
+  [GYRO 1/3] DONE
+
+[GYRO 2/3] PITCH: nose UP (expect +FRD gyro y)
+   Start level, nose forward. After the beep, pitch ONCE so the NOSE rises,
+   ~60-90 deg, then HOLD still there until the end beep.
+  raw data saved: raw_gyro_2_pitch_nose_up.csv
+  net rotation (FRD, deg): x=+9.4  y=+82.3  z=+5.0   (peak 16 deg/s)
+  accelerometer confirms the board physically moved the requested way
+  RESULT: PASS: FRD gyro y is positive (+82 deg) as required.
+  [GYRO 2/3] DONE
+
+[GYRO 3/3] YAW: nose RIGHT (expect +FRD gyro z)
+   Start level, nose forward. After the beep, spin ONCE flat so the NOSE swings to the
+   RIGHT (clockwise seen from above), ~90 deg, then HOLD still until the end beep.
+  raw data saved: raw_gyro_3_yaw_nose_right.csv
+  net rotation (FRD, deg): x=+6.1  y=-6.9  z=+98.3   (peak 61 deg/s)
+  accelerometer cannot confirm yaw (no gravity change)
+  RESULT: PASS: FRD gyro z is positive (+98 deg) as required.
+  [GYRO 3/3] DONE
+
+  Gyro summary
+    roll_right_down    PASS   FRD angle on expected axis: +86.6 deg
+    pitch_nose_up      PASS   FRD angle on expected axis: +82.3 deg
+    yaw_nose_right     PASS   FRD angle on expected axis: +98.3 deg
+    gyro native -> FRD map measured from the tests: FRD x = -native x,  FRD y = +native y,  FRD z = -native z
+    gyro axes agree with the accelerometer axes.
+
+========================================================================
+STAGE 2 COMPLETE: gyro signs ALL PASS
+========================================================================
+
+========================================================================
+STAGE 3/3  MAGNETOMETER MAPPING  (only matters if you will use the mag)
+========================================================================
+Each run is 30 s. Rotate SLOWLY (about 1-2 full turns, roughly 10-20 deg/s)
+about the named axis, keeping that axis as fixed as you can. Stay away from laptops,
+monitors, speakers and steel furniture, and keep the same place for all three runs.
+
+[MAG 1/3] slow rotation about FRD X (the nose axis)
+   Like a barrel roll / rolling pin: the nose stays pointed at one spot while the board spins.
+
+Interrupted: partial results are saved.
+
+========================================================================
+SUMMARY
+========================================================================
+Accel  : residual 0.2267 m/s^2; FRD x = -native x,  FRD y = +native y,  FRD z = -native z
+Gyro   : roll_right_down=PASS, pitch_nose_up=PASS, yaw_nose_right=PASS; signs OK = True; map differs from accel = False
+
+Files are in: /home/vertical-lander/Desktop/Lander_Jr/important/sensor_data/laser_data/imu_cal_20261124_221829
+  raw_*.csv (raw data), calibration.json (results), calibration_report.txt (this log)

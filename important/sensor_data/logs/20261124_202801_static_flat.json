@@ -1,0 +1,69 @@
+{
+  "label": "static_flat",
+  "notes": "",
+  "target_rate_hz": 100.0,
+  "duration_s": 600.0,
+  "start_wall_time": "2026-11-24T20:28:01.801026",
+  "imu_keys": [
+    "accel_x",
+    "accel_y",
+    "accel_z",
+    "gyro_x",
+    "gyro_y",
+    "gyro_z",
+    "temp_c",
+    "mag_x",
+    "mag_y",
+    "mag_z",
+    "mag_new",
+    "mag_ovf",
+    "raw_ax",
+    "raw_ay",
+    "raw_az",
+    "raw_gx",
+    "raw_gy",
+    "raw_gz"
+  ],
+  "flow_keys": [
+    "distance_m",
+    "rangefinder_quality",
+    "motion_x",
+    "motion_y",
+    "flow_quality"
+  ],
+  "body_frame": "FRD (x Forward, y Right, z Down)",
+  "native_to_frd_matrix": [
+    [
+      0,
+      1,
+      0
+    ],
+    [
+      1,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      -1
+    ]
+  ],
+  "native_to_frd_verified": false,
+  "frd_columns_cover": "accel and gyro only (mag, flow, laser not converted)",
+  "summary": {
+    "cycles": 59998,
+    "elapsed_s": 600.002249122,
+    "achieved_loop_rate_hz": 99.99629182690023,
+    "imu_unique_sample_rate_hz": 99.99629182690023,
+    "flow_unique_sample_rate_hz": 17.496601080015978,
+    "overruns": 11,
+    "loop_dt_ms_mean": 10.000364083837525,
+    "loop_dt_ms_p99": 10.029823,
+    "loop_dt_ms_max": 16.302392,
+    "imu_read_ms_mean": 4.410019520567352,
+    "imu_read_ms_max": 12.968773,
+    "flow_read_ms_mean": 0.04824310627020901,
+    "flow_read_ms_max": 5.094152
+  }
+}

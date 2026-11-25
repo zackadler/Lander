@@ -23,7 +23,7 @@ Each flow number is how fast the ground appears to slide past the camera along o
 
 Need to figure out the direction and compare it to the IMU. If we want to use this module, then we need to figure out how to reliably convert the data into lateral speed or something idk.
 
-IMU:
+IMU: 
 The data returned for the IMU is this:
             "accel_x": ax,
             "accel_y": ay,

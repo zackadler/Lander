@@ -1,0 +1,35 @@
+Planned heights done. Type another height to record (e.g. 0.8 or 80cm), or press Enter to finish and fit > 
+
+ true_m   mean_m   median    std_m   min_m   max_m distinct  ratio   valid/n rate_Hz  qual
+  0.050   0.0206   0.0210   0.0007   0.020   0.022        3  0.413   484/484    48.4   255
+  0.100   0.0637   0.0640   0.0006   0.062   0.065        4  0.637   482/482    48.2   255
+  0.200   0.1617   0.1620   0.0005   0.160   0.163        4  0.809   484/484    48.4   255
+  0.300   0.2779   0.2780   0.0006   0.276   0.279        4  0.926   483/483    48.3   255
+  0.500   0.4835   0.4830   0.0005   0.482   0.484        3  0.967   487/487    48.7   255
+  0.750   0.7418   0.7420   0.0005   0.741   0.743        3  0.989   484/484    48.4   255
+  1.000   1.0020   1.0020   0.0012   1.000   1.005        6  1.002   484/484    48.4   255
+128.000   1.2733   1.2720   0.0021   1.270   1.277        8  0.010   484/484    48.4   255
+109.000   1.0814   1.0810   0.0014   1.079   1.084        6  0.010   485/485    48.5   255
+ 85.000   0.8417   0.8420   0.0014   0.838   0.844        7  0.010   485/485    48.5   255
+
+Fit (all heights): measured = 0.0065 * true +0.3849 m   (rms residual 285.8 mm, 10 points)
+    true  0.050 m -> residual  -364.6 mm
+    true  0.100 m -> residual  -321.8 mm
+    true  0.200 m -> residual  -224.5 mm
+    true  0.300 m -> residual  -108.9 mm
+    true  0.500 m -> residual   +95.4 mm
+    true  0.750 m -> residual  +352.1 mm
+    true  1.000 m -> residual  +610.7 mm
+    true 128.000 m -> residual   +61.6 mm
+    true 109.000 m -> residual    -7.6 mm
+    true 85.000 m -> residual   -92.3 mm
+Fit (heights >= 0.1 m): measured = 0.0059 * true +0.4454 m   (rms residual 271.2 mm, 9 points)
+    true  0.100 m -> residual  -382.2 mm
+    true  0.200 m -> residual  -284.8 mm
+    true  0.300 m -> residual  -169.2 mm
+    true  0.500 m -> residual   +35.2 mm
+    true  0.750 m -> residual  +292.0 mm
+    true  1.000 m -> residual  +550.8 mm
+    true 128.000 m -> residual   +71.9 mm
+    true 109.000 m -> residual    -7.8 mm
+    true 85.000 m -> residual  -105.8 mm

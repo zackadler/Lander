@@ -1,0 +1,365 @@
+{
+  "start_wall_time": "2026-11-24T21:12:41.269260",
+  "surface": "unspecified",
+  "notes": "",
+  "port": "/dev/ttyAMA0",
+  "planned_heights_m": [
+    0.05,
+    0.1,
+    0.2,
+    0.3,
+    0.5,
+    0.75,
+    1.0,
+    1.5,
+    2.0
+  ],
+  "settle_s": 1.0,
+  "duration_s": 10.0,
+  "fit_min_height_m": 0.1,
+  "distance_conversion": "raw_mm / 1000 (negative raw_mm is invalid and has no distance_m)",
+  "points": [
+    {
+      "point_idx": 1,
+      "true_m": 0.05,
+      "partial": 0,
+      "window_s": 10.0,
+      "n_range": 484,
+      "n_valid": 484,
+      "n_invalid": 0,
+      "range_rate_hz": 48.4,
+      "mean_m": 0.020646694214876034,
+      "median_m": 0.021,
+      "std_m": 0.0006750952040968972,
+      "min_m": 0.02,
+      "max_m": 0.022,
+      "distinct": 3,
+      "ratio": 0.41293388429752065,
+      "range_quality_mean": 255.0,
+      "n_flow": 484,
+      "flow_rate_hz": 48.4,
+      "flow_quality_mean": 84.63636363636364,
+      "motion_x_mean": 0.024793388429752067,
+      "motion_x_std": 0.4058011139567245,
+      "motion_y_mean": 0.004132231404958678,
+      "motion_y_std": 0.46796494433496383
+    },
+    {
+      "point_idx": 2,
+      "true_m": 0.1,
+      "partial": 0,
+      "window_s": 10.0,
+      "n_range": 482,
+      "n_valid": 482,
+      "n_invalid": 0,
+      "range_rate_hz": 48.2,
+      "mean_m": 0.06374273858921162,
+      "median_m": 0.064,
+      "std_m": 0.000579919126322963,
+      "min_m": 0.062,
+      "max_m": 0.065,
+      "distinct": 4,
+      "ratio": 0.6374273858921161,
+      "range_quality_mean": 255.0,
+      "n_flow": 482,
+      "flow_rate_hz": 48.2,
+      "flow_quality_mean": 75.43775933609959,
+      "motion_x_mean": 0.012448132780082987,
+      "motion_x_std": 0.473192808516553,
+      "motion_y_mean": 0.0,
+      "motion_y_std": 0.3408556477661884
+    },
+    {
+      "point_idx": 3,
+      "true_m": 0.2,
+      "partial": 0,
+      "window_s": 10.0,
+      "n_range": 484,
+      "n_valid": 484,
+      "n_invalid": 0,
+      "range_rate_hz": 48.4,
+      "mean_m": 0.16171694214876034,
+      "median_m": 0.162,
+      "std_m": 0.0005187020402606779,
+      "min_m": 0.16,
+      "max_m": 0.163,
+      "distinct": 4,
+      "ratio": 0.8085847107438017,
+      "range_quality_mean": 255.0,
+      "n_flow": 484,
+      "flow_rate_hz": 48.4,
+      "flow_quality_mean": 82.35537190082644,
+      "motion_x_mean": 0.008264462809917356,
+      "motion_x_std": 0.23162622243374412,
+      "motion_y_mean": 0.010330578512396695,
+      "motion_y_std": 0.2609120490307364
+    },
+    {
+      "point_idx": 4,
+      "true_m": 0.3,
+      "partial": 0,
+      "window_s": 10.0,
+      "n_range": 483,
+      "n_valid": 483,
+      "n_invalid": 0,
+      "range_rate_hz": 48.3,
+      "mean_m": 0.2779337474120083,
+      "median_m": 0.278,
+      "std_m": 0.0005644395105270604,
+      "min_m": 0.276,
+      "max_m": 0.279,
+      "distinct": 4,
+      "ratio": 0.9264458247066945,
+      "range_quality_mean": 255.0,
+      "n_flow": 483,
+      "flow_rate_hz": 48.3,
+      "flow_quality_mean": 86.12422360248448,
+      "motion_x_mean": 0.0,
+      "motion_x_std": 0.0,
+      "motion_y_mean": 0.0,
+      "motion_y_std": 0.0
+    },
+    {
+      "point_idx": 5,
+      "true_m": 0.5,
+      "partial": 0,
+      "window_s": 10.0,
+      "n_range": 487,
+      "n_valid": 487,
+      "n_invalid": 0,
+      "range_rate_hz": 48.7,
+      "mean_m": 0.4834948665297741,
+      "median_m": 0.483,
+      "std_m": 0.0005040639083133593,
+      "min_m": 0.482,
+      "max_m": 0.484,
+      "distinct": 3,
+      "ratio": 0.9669897330595482,
+      "range_quality_mean": 255.0,
+      "n_flow": 487,
+      "flow_rate_hz": 48.7,
+      "flow_quality_mean": 83.33264887063655,
+      "motion_x_mean": 0.0,
+      "motion_x_std": 0.0,
+      "motion_y_mean": 0.0,
+      "motion_y_std": 0.0
+    },
+    {
+      "point_idx": 6,
+      "true_m": 0.75,
+      "partial": 0,
+      "window_s": 10.0,
+      "n_range": 484,
+      "n_valid": 484,
+      "n_invalid": 0,
+      "range_rate_hz": 48.4,
+      "mean_m": 0.7417995867768595,
+      "median_m": 0.742,
+      "std_m": 0.0005484009763845513,
+      "min_m": 0.741,
+      "max_m": 0.743,
+      "distinct": 3,
+      "ratio": 0.9890661157024794,
+      "range_quality_mean": 255.0,
+      "n_flow": 484,
+      "flow_rate_hz": 48.4,
+      "flow_quality_mean": 76.97933884297521,
+      "motion_x_mean": -0.014462809917355372,
+      "motion_x_std": 0.5509172672858941,
+      "motion_y_mean": 0.01652892561983471,
+      "motion_y_std": 0.18106530826617062
+    },
+    {
+      "point_idx": 7,
+      "true_m": 1.0,
+      "partial": 0,
+      "window_s": 10.0,
+      "n_range": 484,
+      "n_valid": 484,
+      "n_invalid": 0,
+      "range_rate_hz": 48.4,
+      "mean_m": 1.0020289256198347,
+      "median_m": 1.002,
+      "std_m": 0.0012142363526461543,
+      "min_m": 1.0,
+      "max_m": 1.005,
+      "distinct": 6,
+      "ratio": 1.0020289256198347,
+      "range_quality_mean": 255.0,
+      "n_flow": 484,
+      "flow_rate_hz": 48.4,
+      "flow_quality_mean": 89.13429752066116,
+      "motion_x_mean": -0.014462809917355372,
+      "motion_x_std": 0.5509172672858941,
+      "motion_y_mean": 0.0,
+      "motion_y_std": 0.0
+    },
+    {
+      "point_idx": 8,
+      "true_m": 128.0,
+      "partial": 0,
+      "window_s": 10.0,
+      "n_range": 484,
+      "n_valid": 484,
+      "n_invalid": 0,
+      "range_rate_hz": 48.4,
+      "mean_m": 1.2733388429752064,
+      "median_m": 1.272,
+      "std_m": 0.002086175349033129,
+      "min_m": 1.27,
+      "max_m": 1.277,
+      "distinct": 8,
+      "ratio": 0.0099479597107438,
+      "range_quality_mean": 255.0,
+      "n_flow": 484,
+      "flow_rate_hz": 48.4,
+      "flow_quality_mean": 99.61157024793388,
+      "motion_x_mean": -0.002066115702479339,
+      "motion_x_std": 0.20828864807754185,
+      "motion_y_mean": 0.0,
+      "motion_y_std": 0.0
+    },
+    {
+      "point_idx": 9,
+      "true_m": 109.0,
+      "partial": 0,
+      "window_s": 10.0,
+      "n_range": 485,
+      "n_valid": 485,
+      "n_invalid": 0,
+      "range_rate_hz": 48.5,
+      "mean_m": 1.0814329896907218,
+      "median_m": 1.081,
+      "std_m": 0.0014280490367771207,
+      "min_m": 1.079,
+      "max_m": 1.084,
+      "distinct": 6,
+      "ratio": 0.009921403575144237,
+      "range_quality_mean": 255.0,
+      "n_flow": 485,
+      "flow_rate_hz": 48.5,
+      "flow_quality_mean": 86.30103092783506,
+      "motion_x_mean": 0.0,
+      "motion_x_std": 0.1112255996640097,
+      "motion_y_mean": 0.0,
+      "motion_y_std": 0.1112255996640097
+    },
+    {
+      "point_idx": 10,
+      "true_m": 85.0,
+      "partial": 0,
+      "window_s": 10.0,
+      "n_range": 485,
+      "n_valid": 485,
+      "n_invalid": 0,
+      "range_rate_hz": 48.5,
+      "mean_m": 0.841661855670103,
+      "median_m": 0.842,
+      "std_m": 0.0013701864798187737,
+      "min_m": 0.838,
+      "max_m": 0.844,
+      "distinct": 7,
+      "ratio": 0.009901904184354153,
+      "range_quality_mean": 255.0,
+      "n_flow": 485,
+      "flow_rate_hz": 48.5,
+      "flow_quality_mean": 80.31134020618556,
+      "motion_x_mean": -0.008247422680412371,
+      "motion_x_std": 0.27232110484287103,
+      "motion_y_mean": -0.002061855670103093,
+      "motion_y_std": 0.10151367938219523
+    }
+  ],
+  "fit_all": {
+    "scale": 0.006459915308965978,
+    "offset_m": 0.384897070574431,
+    "rms_residual_m": 0.2858407819628173,
+    "n_points": 10,
+    "residuals_m": [
+      [
+        0.05,
+        -0.3645733721250033
+      ],
+      [
+        0.1,
+        -0.321800323516116
+      ],
+      [
+        0.2,
+        -0.22447211148746385
+      ],
+      [
+        0.3,
+        -0.10890129775511248
+      ],
+      [
+        0.5,
+        0.0953678383008601
+      ],
+      [
+        0.75,
+        0.35205757972070406
+      ],
+      [
+        1.0,
+        0.6106719397364377
+      ],
+      [
+        128.0,
+        0.061572612853130204
+      ],
+      [
+        109.0,
+        -0.0075948495610007605
+      ],
+      [
+        85.0,
+        -0.09232801616643616
+      ]
+    ]
+  },
+  "fit_min_height": {
+    "scale": 0.005907004723309963,
+    "offset_m": 0.44536222344947096,
+    "rms_residual_m": 0.2712321426405966,
+    "n_points": 9,
+    "residuals_m": [
+      [
+        0.1,
+        -0.3822101853325903
+      ],
+      [
+        0.2,
+        -0.28482668224537266
+      ],
+      [
+        0.3,
+        -0.1692005774544556
+      ],
+      [
+        0.5,
+        0.03517914071864814
+      ],
+      [
+        0.75,
+        0.29200710978490607
+      ],
+      [
+        1.0,
+        0.5507596974470538
+      ],
+      [
+        128.0,
+        0.0718800149420602
+      ],
+      [
+        109.0,
+        -0.007792748599535049
+      ],
+      [
+        85.0,
+        -0.10579576926071477
+      ]
+    ]
+  }
+}

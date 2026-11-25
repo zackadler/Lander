@@ -11,7 +11,7 @@ import time
 from IMU_function import ImuSensor
 from MTF_02P_function import Mtf02pSensor
 
-POLL_INTERVAL_S = 0.02
+POLL_INTERVAL_S = 0.01
 
 
 def format_reading(imu_reading, flow_reading):
